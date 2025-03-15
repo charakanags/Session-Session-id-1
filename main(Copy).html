@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="" type="image/x-icon" />
+  <style>
+    body {
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: white;
+    }
+
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://railway.app",
+      "logo": "https://telegra.ph/file/4cf337052c09eec06f3e8.jpg"
+    }
+
+    .button-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Highlighted Heading Styles */
+    h3 {
+      font-size: 2rem;
+      margin-top: -40px;
+      background: linear-gradient(45deg, #ff4b5c, #ffcd38, #48ff00, #15ff00);
+      background-size: 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 3s linear infinite, fadeIn 3s forwards;
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .button {
+      width: 140px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0px 15px;
+      background-color: red;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      position: relative;
+      cursor: pointer;
+      font-weight: 900;
+      transition-duration: 0.2s;
+      background: linear-gradient(0deg, #000, #272727);
+      text-decoration: none;
+      margin: 5px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #222;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .button:before,
+    .button:after {
+      content: "";
+      position: absolute;
+      left: -2px;
+      top: -2px;
+      border-radius: 10px;
+      background: linear-gradient(45deg, #48ff00, #15ff00, #000000, #000000, #ff0000);
+      background-size: 400%;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      z-index: -1;
+      animation: steam 10s linear infinite;
+    }
+
+    @keyframes steam {
+      0% { background-position: 0 0; }
+      50% { background-position: 400% 0; }
+      100% { background-position: 0 0; }
+    }
+
+    .button:after {
+      filter: blur(50px);
+    }
+
+    .button span {
+      z-index: 1;
+    }
+
+    /* Live Clock and Date Styles */
+    .live-info {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .live-clock,
+    .live-date {
+      margin: 5px 0;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="button-container">
+    <h3>Team BOT SESSION SECTION</h3>
+
+    <!-- Live Clock and Date Display with Labels -->
+    <div class="live-info">
+      <div class="live-clock">
+        <span class="label">Clock:</span>
+        <span id="liveClock">00:00:00</span>
+      </div>
+      <div class="live-date">
+        <span class="label">Date:</span>
+        <span id="liveDate">01/01/1970</span>
+      </div>
+    </div>
+
+    <a href="/qr" class="button" target="_blank"><span>QR-CODE</span></a><br>
+    <a href="/pair" class="button" target="_blank"><span>PAIRING-CODE</span></a><br>
+    <a href="" class="button" target="_blank"><span>FORK BOT</span></a><br>
+
+    <p>YOU HAVE ERROR CLICK ERROR BUTTON</p>
+
+    <a href="https://wa.me/+94783314361?text=HAVE_ERROR_Team_BOT" class="button" target="_blank">
+      <span>ERROR</span>
+    </a><br>
+  </div>
+
+  <footer>
+    VAJIRA-MD &copy; <span id="currentYear"></span>
+  </footer>
+
+  <script>
+    // Function to update Clock and Date separately
+    function updateLiveInfo() {
+      const now = new Date();
+      let hours = now.getHours().toString().padStart(2, "0");
+      let minutes = now.getMinutes().toString().padStart(2, "0");
+      let seconds = now.getSeconds().toString().padStart(2, "0");
+
+      // Update Clock element
+      const liveClock = document.getElementById("liveClock");
+      liveClock.innerText = `${hours}:${minutes}:${seconds}`;
+
+      // Update Date element
+      let day = now.getDate().toString().padStart(2, "0");
+      let month = (now.getMonth() + 1).toString().padStart(2, "0");
+      let year = now.getFullYear();
+      const liveDate = document.getElementById("liveDate");
+      liveDate.innerText = `${day}/${month}/${year}`;
+    }
+
+    // Update every second
+    setInterval(updateLiveInfo, 1000);
+    updateLiveInfo();
+
+    // Set current year in footer
+    document.getElementById("currentYear").innerText = new Date().getFullYear();
+  </script>
+</body>
+</html>
