@@ -70,16 +70,16 @@ var randomItem = selectRandomItem(items);
                         const { upload } = require('./mega');
                         const mega_url = await upload(fs.createReadStream(rf), `${sock.user.id}.json`);
                         const string_session = mega_url.replace('https://mega.nz/file/', '');
-                        let md = "VAJIRA-MD=" + string_session;
+                        let md = "Team-MD=" + string_session;
                         let code = await sock.sendMessage(sock.user.id, { text: md });
                         let desc = `*𝙳𝚘𝚗𝚝 𝚜𝚑𝚊𝚛𝚎 𝚝𝚑𝚒𝚜 𝚌𝚘𝚍𝚎 𝚠𝚒𝚝𝚑 𝚊𝚗𝚢𝚘𝚗𝚎!! 𝚄𝚜𝚎 𝚝𝚑𝚒𝚜 𝚌𝚘𝚍𝚎 𝚝𝚘 𝚌𝚛𝚎𝚊𝚝𝚎 𝙿𝚒𝚗𝚔𝚅𝚎𝚗𝚘𝚖-𝙼𝙳 𝚆𝚑𝚊𝚝𝚜𝚊𝚙𝚙 𝚄𝚜𝚎𝚛 𝚋𝚘𝚝.*\n\n ◦ *Github:* https://github.com/ayooh-us/Pink-Venom-MD`;
                         await sock.sendMessage(sock.user.id, {
 text: desc,
 contextInfo: {
 externalAdReply: {
-title: "ᴠᴀᴊɪʀᴀ-ᴍᴅ",
-thumbnailUrl: "https://telegra.ph/file/e069027c2178e2c7475c9.jpg",
-sourceUrl: "https://whatsapp.com/channel/0029VahMZasD8SE5GRwzqn3Z",
+title: "team-ᴍᴅ",
+thumbnailUrl: "https://raw.githubusercontent.com/charakanags/Web-pair-qr-/refs/heads/main/IMG-20250316-WA0055.jpg",
+sourceUrl: "https://whatsapp.com/channel/0029Vb9WF4nJJhzeUCFS6M0u",
 mediaType: 1,
 renderLargerThumbnail: true
 }  
@@ -93,9 +93,9 @@ renderLargerThumbnail: true
 text: desc,
 contextInfo: {
 externalAdReply: {
-title: "ᴠᴀᴊɪʀᴀ-ᴍᴅ",
-thumbnailUrl: "https://telegra.ph/file/e069027c2178e2c7475c9.jpg",
-sourceUrl: "https://whatsapp.com/channel/0029VahMZasD8SE5GRwzqn3Z",
+title: "team-ᴍᴅ",
+thumbnailUrl: "https://raw.githubusercontent.com/charakanags/Web-pair-qr-/refs/heads/main/IMG-20250316-WA0055.jpg",
+sourceUrl: "https://whatsapp.com/channel/0029Vb9WF4nJJhzeUCFS6M0u",
 mediaType: 2,
 renderLargerThumbnail: true,
 showAdAttribution: true
